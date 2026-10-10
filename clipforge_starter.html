@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b12">
+<title>ClipForge — AI Shorts Studio</title>
+<style>
+:root{--bg:#090b12;--panel:#111521;--panel2:#171c2b;--line:#292f42;--text:#f5f7ff;--muted:#9aa3b8;--purple:#8b5cf6;--pink:#ec4899;--cyan:#5eead4}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 20% -20%,#28204c 0,transparent 42%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.shell{max-width:1250px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:28px}.brand{display:flex;align-items:center;gap:11px;font-size:21px;font-weight:850;letter-spacing:-.6px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--pink));display:grid;place-items:center;box-shadow:0 7px 24px #8b5cf633}.pill{border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:7px 12px;font-size:12px}.hero{margin:24px 0 22px}.eyebrow{color:#c4b5fd;text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:800}.hero h1{font-size:clamp(30px,5vw,49px);line-height:1.07;letter-spacing:-1.8px;margin:10px 0}.hero h1 span{background:linear-gradient(90deg,#a78bfa,#f0abfc,#67e8f9);color:transparent;background-clip:text}.hero p{color:var(--muted);max-width:670px;margin:0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0}.tab{background:#101420;border:1px solid var(--line);color:#c4cad8;padding:11px 15px;border-radius:12px;font-weight:700}.tab.active{background:#2a2047;border-color:#7651c9;color:#fff}
+.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(310px,.95fr);gap:18px;align-items:start}.panel{background:linear-gradient(180deg,#131827,#101420);border:1px solid var(--line);border-radius:18px;padding:20px;min-width:0}.panel h2{font-size:17px;margin:0 0 5px}.sub{font-size:13px;color:var(--muted);margin:0 0 18px}.field{margin:15px 0}.field label{display:block;color:#dbe0ef;font-weight:700;font-size:13px;margin-bottom:7px}.field input,.field textarea,.field select{width:100%;background:#0a0e18;border:1px solid #30374c;border-radius:10px;color:var(--text);padding:12px;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:#9b7bff;box-shadow:0 0 0 3px #8b5cf622}.field textarea{resize:vertical;min-height:112px}.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.btn{border:0;border-radius:11px;padding:12px 16px;font-weight:800;color:white;background:linear-gradient(100deg,#7c3aed,#c026d3);box-shadow:0 7px 22px #8b5cf622}.btn.secondary{background:#202638;border:1px solid #353d53;box-shadow:none;color:#e8ebf6}.btn.small{padding:8px 10px;font-size:12px}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}.note{color:var(--muted);font-size:12px;margin-top:12px}.previewHead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.preview{max-width:320px;width:100%;margin:0 auto;background:#06070b;border:5px solid #252b3a;border-radius:26px;padding:10px;min-height:510px;overflow:hidden;position:relative;box-shadow:0 18px 45px #0007}.screen{border-radius:17px;overflow:hidden;min-height:480px;background:linear-gradient(180deg,#18213c,#080b12);display:flex;flex-direction:column}.status{display:flex;justify-content:space-between;padding:10px 12px;font-size:10px;color:#c9d3e8}.game-bg{flex:1;min-height:245px;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;background:linear-gradient(150deg,#354a70,#171b37 65%,#171125);position:relative}.game-bg:before{content:"";position:absolute;width:110px;height:110px;border-radius:18px;background:#5eead4;opacity:.16;transform:rotate(25deg);left:-28px;top:40px}.game-bg:after{content:"";position:absolute;width:75px;height:75px;border-radius:50%;background:#f0abfc;opacity:.18;right:-12px;bottom:28px}.game-copy{z-index:1;font-weight:900;font-size:25px;line-height:1.14;text-shadow:0 3px 15px #000}.caption{padding:15px 12px 18px;text-align:center;background:#090b12;font-weight:800;font-size:15px;min-height:92px;display:grid;place-items:center}.chat-screen{background:#e8edf4;color:#111827;min-height:480px;display:flex;flex-direction:column}.chatbar{background:#f9fafb;padding:14px 12px;text-align:center;font-weight:800;border-bottom:1px solid #d5dce7}.chatmsgs{padding:14px 9px;display:flex;flex-direction:column;gap:11px;flex:1;justify-content:flex-start}.bubble{max-width:85%;padding:9px 12px;border-radius:16px;font-size:12px;line-height:1.4;overflow-wrap:anywhere}.bubble.left{align-self:flex-start;background:white;border:1px solid #dce2eb;border-bottom-left-radius:5px}.bubble.right{align-self:flex-end;background:#8b5cf6;color:white;border-bottom-right-radius:5px}.chatfoot{font-size:10px;color:#64748b;text-align:center;padding:12px;background:#f9fafb}.hidden{display:none!important}.statusline{color:var(--cyan);font-size:12px;min-height:18px;margin-top:10px}.footer{color:#727d94;text-align:center;font-size:12px;margin:25px 0 10px}
+@media(max-width:820px){.layout{grid-template-columns:1fr}.preview{min-height:490px}.top{align-items:flex-start}.shell{padding:15px}.panel{padding:16px}}@media(max-width:420px){.row{grid-template-columns:1fr}.pill{display:none}.preview{max-width:300px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><div class="brand"><div class="logo">▶</div>ClipForge <span style="font-size:10px;color:#c4b5fd;border:1px solid #55417d;padding:3px 6px;border-radius:6px">BETA</span></div><div class="pill">Independent creator studio · Demo</div></header>
+<section class="hero"><div class="eyebrow">Short-form video studio</div><h1>Turn a thought into a <span>scroll-stopping short.</span></h1><p>Create Roblox-style rant scripts or fictional chat-story scenes, preview a vertical-video layout, and export your draft. This starter runs in your browser.</p></section>
+<div class="tabs"><button class="tab active" data-mode="rant">🎮 Roblox Rant</button><button class="tab" data-mode="chat">💬 Fake Message Story</button></div>
+<div class="layout">
+<section class="panel" id="rantPanel"><h2>Build a Roblox rant</h2><p class="sub">Write your idea, pick a vibe, then generate a starter script.</p>
+<div class="field"><label for="topic">Video topic / idea</label><input id="topic" placeholder="Example: when your friend says 'one last game'"></div>
+<div class="row"><div class="field"><label for="tone">Rant style</label><select id="tone"><option>Funny and relatable</option><option>Chaotic energy</option><option>Storytime</option><option>Hot take</option></select></div><div class="field"><label for="duration">Target length</label><select id="duration"><option value="short">15–20 seconds</option><option value="medium">30–40 seconds</option><option value="long">45–60 seconds</option></select></div></div>
+<div class="field"><label for="script">Script (editable)</label><textarea id="script" placeholder="Your generated script will appear here..."></textarea></div>
+<div class="actions"><button class="btn" id="generateRant">✨ Generate script</button><button class="btn secondary" id="previewRant">Update preview</button></div>
+<div class="note">This demo generates text locally. AI writing, voice generation, and gameplay footage require separate services or media you have permission to use.</div><div class="statusline" id="rantStatus"></div></section>
+<section class="panel hidden" id="chatPanel"><h2>Build a fictional chat story</h2><p class="sub">Create a pretend conversation for a story or comedy short.</p>
+<div class="row"><div class="field"><label for="personA">Character 1</label><input id="personA" value="Alex"></div><div class="field"><label for="personB">Character 2</label><input id="personB" value="Sam"></div></div>
+<div class="field"><label for="chatTitle">Story title</label><input id="chatTitle" value="The weirdest text ever"></div>
+<div class="field"><label for="chatLines">Messages (one per line; start with A: or B:)</label><textarea id="chatLines">A: bro are you awake
+B: yeah why
+A: I accidentally sent the screenshot to the person in it
+B: DELETE THE APP 😭
+A: THEY'RE TYPING
+B: move to another country</textarea></div>
+<div class="actions"><button class="btn" id="updateChat">Update chat preview</button><button class="btn secondary" id="sampleChat">Load sample</button></div>
+<div class="note">Keep the conversation fictional or get permission before using real people's names or private messages.</div><div class="statusline" id="chatStatus"></div></section>
+<section class="panel"><div class="previewHead"><div><h2>Vertical preview</h2><p class="sub" style="margin:3px 0 0">9:16 short-form layout</p></div><span class="pill">LIVE PREVIEW</span></div>
+<div class="preview"><div class="screen" id="rantPreview"><div class="status"><span>9:41</span><span>● ● ▰</span></div><div class="game-bg"><div class="game-copy" id="bigCaption">YOUR NEXT ROBLOX RANT<br>GOES HERE</div></div><div class="caption" id="smallCaption">Add a topic and generate your script.</div></div>
+<div class="chat-screen hidden" id="chatPreview"><div class="chatbar" id="chatPreviewTitle">The weirdest text ever</div><div class="chatmsgs" id="chatMessages"></div><div class="chatfoot">Fictional conversation · Story preview</div></div></div>
+<div class="actions" style="justify-content:center"><button class="btn secondary" id="downloadBtn">↓ Export draft (.txt)</button><button class="btn secondary" id="copyBtn">Copy script</button></div><div class="statusline" id="exportStatus" style="text-align:center"></div>
+<p class="note">The preview is a mockup, not a rendered video file. This first version exports the script/chat draft only.</p></section>
+</div>
+<div class="footer">ClipForge is an independent demo and is not affiliated with Clippie.ai. Your drafts stay in this page unless you export them.</div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+let mode='rant';
+const tabs=[...document.querySelectorAll('.tab')];
+tabs.forEach(t=>t.addEventListener('click',()=>{mode=t.dataset.mode;tabs.forEach(x=>x.classList.toggle('active',x===t));$('rantPanel').classList.toggle('hidden',mode!=='rant');$('chatPanel').classList.toggle('hidden',mode!=='chat');$('rantPreview').classList.toggle('hidden',mode!=='rant');$('chatPreview').classList.toggle('hidden',mode!=='chat');if(mode==='chat')updateChat();}));
+function makeRant(){
+ const topic=$('topic').value.trim()||'when your friend says one last game';
+ const tone=$('tone').value, duration=$('duration').value;
+ let opener=tone==='Chaotic energy'?'BRO. WHY DOES THIS ALWAYS HAPPEN?':tone==='Storytime'?'Okay, storytime, because I still cannot believe this.':tone==='Hot take'?'I have a Roblox hot take and I am standing by it.':'Can we talk about this for a second?';
+ let length=duration==='short'?['You join for five minutes, then somehow it is two hours later.','And the worst part? Everyone acts like this is completely normal.']:duration==='medium'?['First, they say it will only take a minute. Then one thing goes wrong, the whole squad starts panicking, and suddenly nobody remembers the plan.','You try to leave, but someone says “wait, watch this” and now you are stuck for another round.']:['At first you think it is going to be a normal session. Then your friend comes up with a plan that makes absolutely no sense, but everyone follows it anyway.','Five minutes later, the whole team is arguing, somebody has fallen off the map, and the person who started it is somehow blaming everybody else.','And when you finally say you are leaving, they hit you with “one last game.” We all know that is a lie.'];
+ $('script').value=opener+'\n\n'+topic.charAt(0).toUpperCase()+topic.slice(1)+'.\n\n'+length.join('\n\n')+'\n\nFollow for more painfully relatable Roblox moments.';
+ $('rantStatus').textContent='Starter script generated. Edit it however you like.';
+ updateRantPreview();
+}
+function updateRantPreview(){
+ let s=$('script').value.trim();let lines=s.split(/\n+/).filter(Boolean);
+ $('bigCaption').textContent=($('topic').value.trim()||'YOUR NEXT ROBLOX RANT').toUpperCase();
+ $('smallCaption').textContent=lines[0]||'Your caption preview appears here.';
+}
+$('generateRant').addEventListener('click',makeRant);$('previewRant').addEventListener('click',()=>{updateRantPreview();$('rantStatus').textContent='Preview updated.'});
+function updateChat(){
+ const title=$('chatTitle').value.trim()||'Chat story';$('chatPreviewTitle').textContent=title;
+ const a=$('personA').value.trim()||'Alex',b=$('personB').value.trim()||'Sam';
+ const box=$('chatMessages');box.innerHTML='';
+ const lines=$('chatLines').value.split('\n').filter(x=>x.trim());
+ lines.forEach((line,i)=>{let right=/^B\s*:/i.test(line);let msg=line.replace(/^[AB]\s*:/i,'').trim();if(!msg)return;let div=document.createElement('div');div.className='bubble '+(right?'right':'left');div.textContent=(right?b:a)+': '+msg;box.appendChild(div);});
+ $('chatStatus').textContent='Chat preview updated.';
+}
+$('updateChat').addEventListener('click',updateChat);
+$('sampleChat').addEventListener('click',()=>{$('personA').value='Alex';$('personB').value='Sam';$('chatTitle').value='The weirdest text ever';$('chatLines').value='A: bro are you awake\nB: yeah why\nA: I accidentally sent the screenshot to the person in it\nB: DELETE THE APP 😭\nA: THEY\\'RE TYPING\nB: move to another country';updateChat()});
+function exportText(){return mode==='rant'?'CLIPFORGE — ROBLOX RANT SCRIPT\nTopic: '+($('topic').value||'Untitled')+'\nStyle: '+$('tone').value+'\n\n'+$('script').value:'CLIPFORGE — FICTIONAL CHAT STORY\nTitle: '+$('chatTitle').value+'\n\n'+$('chatLines').value}
+$('downloadBtn').addEventListener('click',()=>{let blob=new Blob([exportText()],{type:'text/plain;charset=utf-8'});let a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=mode==='rant'?'roblox-rant-script.txt':'fictional-chat-story.txt';a.click();URL.revokeObjectURL(a.href);$('exportStatus').textContent='Draft exported.'});
+$('copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(exportText());$('exportStatus').textContent='Copied to clipboard.'}catch(e){$('exportStatus').textContent='Copy unavailable in this browser; use Export draft instead.'}});
+$('topic').addEventListener('input',()=>{if(mode==='rant')updateRantPreview()});
+updateChat();
+</script>
+</body></html>
